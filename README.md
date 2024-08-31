@@ -24,83 +24,70 @@ Ensure you have Python installed on your machine. You can download it from pytho
   2. Create a virtual environment:
 
   ```bash
-      python -m venv venv
+  python -m venv venv
   ```
     
   3. Activate the virtual environment:
-    * On Windows:
+  On Windows:
 
-     ```bash
-        venv\Scripts\activate
-     ```
+   ```bash
+   venv\Scripts\activate
+   ```
       
-    * On macOS/Linux:
+  On macOS/Linux:
     
-      ```bash
-        source venv/bin/activate
-      ```
+   ```bash
+   source venv/bin/activate
+   ```
       
   4. Install dependencies:
 
-    ```shell
-      pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
   
   5. Set up the database:
 
-    ```bash
-      python setup_db.py
-    ```
+   ```bash
+   python setup_db.py
+   ```
 
-    This script will create the necessary tables in an in-memory SQLite database for testing purposes. For a persistent database, you can adjust the URI in config.py.
+   This script will create the necessary tables in an in-memory SQLite database for testing purposes. For a persistent database, you can adjust the URI in config.py.
 
-Configuration
-The application uses a test_config.py for testing. This file should contain:
 
-python
-Copy code
-class TestConfig:
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-For other configurations, adjust config.py as needed.
+## CRUD Operations
 
-CRUD Operations
-Create a New User
-URL: /create
-Method: GET, POST
-Description: Displays a form to create a new user and handles form submission to add the user to the database.
-Read All Users
-URL: /users
-Method: GET
-Description: Displays a list of all users in the database.
-Update a User
-URL: /update/<int:id>
-Method: GET, PUT
-Description: Displays a form to update an existing user’s details and handles form submission to update the user.
-Delete a User
-URL: /delete/<int:id>
-Method: POST
-Description: Deletes a user by ID from the database.
-Running Tests
-Create a test configuration file: Ensure you have test_config.py with the following content:
-
-python
-Copy code
-class TestConfig:
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-Run the tests:
-
-bash
+# Create a New User
+* URL: /
+* Method: GET, POST
+* Description: Displays a form to create a new user and handles form submission to add the user to the database.
+# Read All Users
+* URL: /get_all_users
+* Method: GET
+* Description: Displays a list of all users in the database.
+# Read Individual Users
+* URL: /users/<int:id>
+* Method: GET
+* Description: Displays an individual users in the database.
+# Update a User
+* URL: /update_user/<int:id>
+* Method: GET, PUT, POST
+* Description: Displays a form to update an existing user’s details and handles form submission to update the user.
+# Delete a User
+* URL: /delete_user/<int:id>
+* Method: POST
+* Description: Deletes a user by ID from the database.
+* Running Tests
+# Create a test configuration file: 
+```bash
 python -m unittest test_app.py
+```
 This will execute the unit tests defined in test_app.py, which include tests for retrieving all users.
 
 Running the Application
 To start the Flask application, use:
 
-bash
-Copy code
+```bash
 python run.py
+```
 The application will be accessible at http://127.0.0.1:5000.
