@@ -16,7 +16,7 @@ Ensure you have Python installed on your machine. You can download it from pytho
 # Installation
   1. Clone the repository:
 
-    ```shell
+    ```bash
       git clone <repository_url>
       cd <repository_directory>
     ```
