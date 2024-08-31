@@ -16,23 +16,23 @@ Ensure you have Python installed on your machine. You can download it from pytho
 # Installation
   1. Clone the repository:
 
-    ```bash
-      git clone <repository_url>
-      cd <repository_directory>
-    ```
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
   
   2. Create a virtual environment:
 
-    ```shell
+  ```bash
       python -m venv venv
-    ```
+  ```
     
   3. Activate the virtual environment:
     * On Windows:
 
-      ```shell
+     ```bash
         venv\Scripts\activate
-      ```
+     ```
       
     * On macOS/Linux:
     
